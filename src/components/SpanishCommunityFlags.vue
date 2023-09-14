@@ -1,58 +1,67 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div v-if="comunidadData">
+    <img :src="comunidadData.flag" alt="`Bandera ${comunidadData.name} `" />
+    <span v-if="showName">{{ comunidadData.name }}</span>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
-</script>
+import Andalucia from "../assets/Andalucía.png";
+import Aragon from "../assets/Aragón.png";
+import Asturias from "../assets/Asturias.png";
+import Baleares from "../assets/Baleares.png";
+import Canarias from "../assets/Canarias.png";
+import Cantabria from "../assets/Cantabria.png";
+import CastillaLaMancha from "../assets/Castilla-La-Mancha.png";
+import CastillaYLeon from "../assets/Castilla-Y-Leon.png";
+import Cataluna from "../assets/Cataluna.png";
+import Extremadura from "../assets/Extremadura.png";
+import Galicia from "../assets/Galicia.png";
+import Madrid from "../assets/Madrid.png";
+import Murcia from "../assets/Murcia.png";
+import Navarra from "../assets/Navarra.png";
+import PaisVasco from "../assets/Pais-Vasco.png";
+import LaRioja from "../assets/La-Rioja.png";
+import ComunidadValenciana from "../assets/Comunidad-Valenciana.png";
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+export default {
+  props: {
+    isoCode: {
+      type: String,
+      required: true,
+    },
+    showName: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      comunidades: {
+        AN: { name: "Andalucía", flag: Andalucia },
+        AR: { name: "Aragón", flag: Aragon },
+        AS: { name: "Asturias", flag: Asturias },
+        IB: { name: "Baleares", flag: Baleares },
+        CN: { name: "Canarias", flag: Canarias },
+        CB: { name: "Cantabria", flag: Cantabria },
+        CM: { name: "Castilla-La Mancha", flag: CastillaLaMancha },
+        CL: { name: "Castilla y León", flag: CastillaYLeon },
+        CT: { name: "Cataluña", flag: Cataluna },
+        EX: { name: "Extremadura", flag: Extremadura },
+        GA: { name: "Galicia", flag: Galicia },
+        MD: { name: "Madrid", flag: Madrid },
+        MC: { name: "Murcia", flag: Murcia },
+        NC: { name: "Navarra", flag: Navarra },
+        PV: { name: "País Vasco", flag: PaisVasco },
+        RI: { name: "La Rioja", flag: LaRioja },
+        VC: { name: "Comunidad Valenciana", flag: ComunidadValenciana },
+      },
+    };
+  },
+  computed: {
+    comunidadData() {
+      return this.comunidades[this.isoCode];
+    },
+  },
+};
+</script>
