@@ -1,6 +1,10 @@
 <template>
-  <div v-if="comunidadData">
-    <img :src="comunidadData.flag" alt="`Bandera ${comunidadData.name} `" />
+  <div v-if="comunidadData" :alt="`Bandera ${comunidadData.name} `">
+    <img
+      class="cover w-full h-full"
+      :src="comunidadData.flag"
+      :alt="`Bandera ${comunidadData.name} `"
+    />
     <span v-if="showName">{{ comunidadData.name }}</span>
   </div>
 </template>
@@ -23,6 +27,9 @@ import Navarra from "../assets/Navarra.png";
 import PaisVasco from "../assets/Pais-Vasco.png";
 import LaRioja from "../assets/La-Rioja.png";
 import ComunidadValenciana from "../assets/Comunidad-Valenciana.png";
+import Ceuta from "../assets/Ceuta.svg";
+import Melilla from "../assets/Melilla.svg";
+import NotDefined from "../assets/Not-Defined.png";
 
 export default {
   props: {
@@ -55,6 +62,9 @@ export default {
         PV: { name: "País Vasco", flag: PaisVasco },
         RI: { name: "La Rioja", flag: LaRioja },
         VC: { name: "Comunidad Valenciana", flag: ComunidadValenciana },
+        CE: { name: "Ceuta", flag: Ceuta },
+        ML: { name: "Melilla", flag: Melilla },
+        NT: { name: "No Definido", flag: NotDefined },
       },
     };
   },

@@ -1,3 +1,3 @@
-import SpanishCommunityFlags from "src/components/SpanishCommunityFlags.vue";
+import SpanishCommunityFlags from "./src/components/SpanishCommunityFlags.vue";
 
 export default SpanishCommunityFlags;
