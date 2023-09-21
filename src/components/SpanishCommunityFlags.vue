@@ -1,6 +1,7 @@
 <template>
-  <div v-if="comunidadData && showFlag" :alt="`Bandera ${comunidadData.name} `">
+  <div v-if="comunidadData" :alt="`Bandera ${comunidadData.name} `">
     <img
+      v-if="showFlag"
       class="cover w-full h-full"
       :src="comunidadData.flag"
       :alt="`Bandera ${comunidadData.name} `"
