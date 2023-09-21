@@ -1,5 +1,5 @@
 <template>
-  <div v-if="comunidadData" :alt="`Bandera ${comunidadData.name} `">
+  <div v-if="comunidadData && showFlag" :alt="`Bandera ${comunidadData.name} `">
     <img
       class="cover w-full h-full"
       :src="comunidadData.flag"
@@ -40,6 +40,10 @@ export default {
     showName: {
       type: Boolean,
       default: false,
+    },
+    showFlag: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
